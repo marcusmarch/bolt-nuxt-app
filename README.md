@@ -1,24 +1,29 @@
 # TDS-enabled Timeline
 
-Built with Nuxt 3, and using Github codepsaces, and auto-deploying to Netlify's https://trump-dictator.netlify.app/
+Kicked this off with https://bolt.new/ using prompt like "Nuxt app with timeline of key events. Headline in red 'Days Since XYZ' and date counter underneath"
 
-# Nuxt 3 Minimal Starter
+It built the scaffolding, a Nuxt 3 app. I tweaked it just a bit and used their "Deploy to Netlify" option.
+Then I downloaded the zip, imported into this new Github repo, connected my claimed Netlify site to it, and voila!
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Continued coding via Github codepsace, it's now auto-deploying to Netlify's https://trump-dictator.netlify.app/
+
+# Contributing
+
+Please do contribute, make a PR.
+
+For Nuxt docs, look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
 ## Setup
+
+I recommend doing everything in a github codespace. TODO: define the Codespace with extensions that made it easy, so everyone gets them automatically:
+
+### Recommended Extensions in VS Code
+1. Prettier
 
 Make sure to install the dependencies:
 
 ```bash
-# yarn
-yarn install
-
-# npm
 npm install
-
-# pnpm
-pnpm install
 ```
 
 ## Development Server
