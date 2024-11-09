@@ -19,22 +19,12 @@
 <script setup>
 import { ref } from 'vue'
 import { useInfiniteScroll } from '@vueuse/core'
+import { timelineEvents } from '../data/timelineEvents'
 
 const timelineRef = ref(null)
 const loading = ref(false)
 const page = ref(1)
 const visibleEvents = ref([])
-
-// Simulated events data - in a real app, this would come from an API
-const generateEvents = (page, limit = 10) => {
-  return Array.from({ length: limit }, (_, i) => ({
-    id: page * limit + i,
-    date: new Date(Date.now() - (Math.random() * 90) * 24 * 60 * 60 * 1000),
-    title: `Event ${page * limit + i + 1}`,
-    description: `This is a description for event ${page * limit + i + 1}. Something important happened here.`,
-    image: `https://picsum.photos/seed/${page * limit + i}/200/100`
-  }))
-}
 
 const loadMoreEvents = async () => {
   if (loading.value) return
@@ -43,9 +33,14 @@ const loadMoreEvents = async () => {
   // Simulate API delay
   await new Promise(resolve => setTimeout(resolve, 500))
   
-  const newEvents = generateEvents(page.value)
-  visibleEvents.value.push(...newEvents)
-  page.value++
+  const startIdx = (page.value - 1) * 5
+  const endIdx = Math.min(startIdx + 5, timelineEvents.length)
+  const newEvents = timelineEvents.slice(startIdx, endIdx)
+  
+  if (newEvents.length > 0) {
+    visibleEvents.value.push(...newEvents)
+    page.value++
+  }
   
   loading.value = false
 }
@@ -54,11 +49,11 @@ const loadMoreEvents = async () => {
 loadMoreEvents()
 
 // Setup infinite scroll
-// useInfiniteScroll(
-//   timelineRef,
-//   () => {
-//     loadMoreEvents()
-//   },
-//   { distance: 10 }
-// )
+useInfiniteScroll(
+  timelineRef,
+  () => {
+    loadMoreEvents()
+  },
+  { distance: 10 }
+)
 </script>
