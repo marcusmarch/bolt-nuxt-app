@@ -54,11 +54,11 @@ const loadMoreEvents = async () => {
 loadMoreEvents()
 
 // Setup infinite scroll
-useInfiniteScroll(
-  timelineRef,
-  () => {
-    loadMoreEvents()
-  },
-  { distance: 10 }
-)
+// useInfiniteScroll(
+//   timelineRef,
+//   () => {
+//     loadMoreEvents()
+//   },
+//   { distance: 10 }
+// )
 </script>
