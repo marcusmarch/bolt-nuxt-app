@@ -11,6 +11,9 @@
       <div v-if="startDate" class="text-xl text-gray-600">
         since {{ formatDate(startDate) }}
       </div>
+      <div v-else class="text-xl text-gray-600 italic">
+        Hasn't happened yet but will start counting as soon as it does
+      </div>
     </div>
 
     <Timeline />
