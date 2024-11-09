@@ -3,7 +3,6 @@
     <h1 class="text-6xl font-bold text-red-600 text-center mb-8">
       Days Since Trump Became A Dictator
     </h1>
-    
     <div class="text-center mb-12">
       <div class="text-4xl font-bold">
         {{ daysCount }} days
