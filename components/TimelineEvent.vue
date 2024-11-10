@@ -4,8 +4,7 @@
       <figure>
         <img :src="event.image" :alt="event.title" class="w-24 h-16 object-cover rounded">
         <figcaption>
-          Photo by [Photographer Name] via [Source]
-          (<a href="license-url">License type</a>)
+          {{ event.imageAttribution }}
         </figcaption>
       </figure>
       <div class="flex-1">
@@ -47,6 +46,7 @@ figcaption {
   background-color: rgba(0, 0, 0, 0.7);
   color: white;
   padding: 10px;
+  pointer-events: none;
 }
 
 figure:hover figcaption {
