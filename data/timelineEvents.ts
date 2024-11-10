@@ -1,6 +1,6 @@
 export const timelineEvents = [
   {
-    date: new Date("2024-11-05T00:00:00Z"),
+    date: new Date("2024-11-05T11:00:00Z"),
     title: "Wins the Presidency",
     description:
       "Wins with the Popular Vote. Voters apparently reject Biden/Harris's last 4 years. Harris calls Trump to concede.",
