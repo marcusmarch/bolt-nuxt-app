@@ -1,7 +1,13 @@
 <template>
   <div class="bg-white rounded-lg shadow-md p-6 transition-transform hover:scale-[1.02]">
     <div class="flex items-start gap-4">
-      <img :src="event.image" :alt="event.title" class="w-24 h-16 object-cover rounded" />
+      <figure>
+        <img :src="event.image" :alt="event.title" class="w-24 h-16 object-cover rounded">
+        <figcaption>
+          Photo by [Photographer Name] via [Source]
+          (<a href="license-url">License type</a>)
+        </figcaption>
+      </figure>
       <div class="flex-1">
         <div class="text-sm text-gray-500 mb-1">
           {{ formatDate(event.date) }}
@@ -30,3 +36,20 @@ const formatDate = (date) => {
   return format(new Date(date), 'MMMM do, yyyy')
 }
 </script>
+
+<style scoped>
+figcaption {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 10px;
+}
+
+figure:hover figcaption {
+  opacity: 1;
+}
+</style>
